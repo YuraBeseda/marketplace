@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Delete Publication</h1>
+
+    {% if user.id == publication.author.id %}
+        <p>Are you sure you want to delete the publication: "{{ publication }}"?</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Yes" class="btn btn-danger">
+            <a class="btn btn-primary" href="{% url 'marketplace:index' %}">No</a>
+        </form>
+    {% else %}
+        <p>You can't delete this publication!</p>
+    {% endif %}
+{% endblock %}

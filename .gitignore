@@ -1,0 +1,6 @@
+.idea/
+__pycache__/
+media/
+.log
+.pot
+db.sqlite3

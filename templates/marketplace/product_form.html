@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    {% if object %}
+        <h1>Update Product</h1>
+        {% if object.author.id == user.id %}
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+
+            {% else %}
+            <p>You can't change this product!</p>
+        {% endif %}
+    {% else %}
+        <h1>Create Product</h1>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>Product List</h1>
+    <hr>
+
+    <form action="" method="get" class="form-inline" style="margin-bottom: 1vh">
+        {{ search_form|crispy }}
+        <input class="btn btn-secondary" type="submit" value="Find">
+    </form>
+
+    {% if product_list %}
+        <div class="product-container">
+            {% for product in product_list %}
+                <div style="width: 12vw">
+                    <a href="{% url 'marketplace:product-detail' pk=product.id %}">
+                        <div class="product-image" style="background-image: url('{{ product.image.url }}')"></div>
+                        <div>
+                            <p style="margin-bottom: 0">{{ product.price }} CAD</p>
+                            <p class="overflow-information">{{ product.name }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>The are no products which you was searching</p>
+    {% endif %} 
+
+{% endblock %}

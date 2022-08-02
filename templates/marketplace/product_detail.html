@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="product-container">
+        <div class="product-left-column">
+            <div class="product-background-image" style="background-image: url('{{ product.image.url }}');"></div>
+            <img class="product-detail-image" src="{{ product.image.url }}" alt="">
+        </div>
+        <div class="product-right-column">
+            <h1>
+                {{ product.name }}
+                {% if user.pk == product.author.pk %}
+                    <a class="btn btn-primary" href="{% url 'blog:product-update' pk=product.pk %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'blog:product-delete' pk=product.pk %}">Delete</a>
+                {% endif %}
+            </h1>
+            <hr>
+            <h3>Seller's Description</h3>
+            <p>{{ product.description|linebreaks }}</p>
+            <p><span class="strong">Price:</span> {{ product.price }} CAD</p>
+            <p><span class="strong">Seller information:</span> <a href="{% url 'marketplace:trader-detail' pk=product.author.id %}">{{ product.author }}</a></p>
+        </div>
+    </div>
+
+{% endblock %}

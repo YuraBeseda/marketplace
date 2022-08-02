@@ -1,0 +1,91 @@
+body {
+    margin-top: 20px;
+}
+
+.strong {
+    font-weight: 700;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.overflow-information{
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  	width: 100%;
+}
+
+hr.big {
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 50px;
+}
+
+.product-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.product-image {
+    width: 100%;
+    height: 12vw;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.product-detail-image {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-background-image {
+    background: no-repeat center;
+    background-size: cover;
+    filter: blur(8px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.product-left-column {
+    position: relative;
+    width: 69%;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.product-right-column {
+    width: 29%;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.publication-text {
+    max-height: 22vh;
+    overflow: scroll;
+    white-space: pre-line;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

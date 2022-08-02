@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    {% if object %}
+        <h1>Update Publication</h1>
+        {% if object.author.id == user.id %}
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+
+            {% else %}
+            <p>You can't change this publication!</p>
+        {% endif %}
+    {% else %}
+        <h1>Create Publication</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    {% endif %}
+{% endblock %}

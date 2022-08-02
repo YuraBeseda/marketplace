@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Publication List</h1>
+
+    {% if publication_list %}
+        {% for publication in publication_list %}
+            <hr>
+            <h3><a href="{% url 'marketplace:trader-detail' pk=publication.author.id %}">{{ publication.author.username }}</a></h3>
+            <h5>"{{ publication.title }}"</h5>
+            <p class="publication-text">{{ publication.text }}</p>
+        {% endfor %}
+        {% else %}
+        <p>The are no publications which you was searching</p>
+    {% endif %} 
+
+{% endblock %}

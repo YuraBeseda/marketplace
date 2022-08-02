@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>Users</h1>
+
+    <form action="" method="get" class="form-inline">
+        {{ search_form|crispy }}
+        <input class="btn btn-secondary" type="submit" value="Find">
+    </form>
+
+    <br>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Province</th>
+        </tr>
+
+    {% for trader in trader_list %}
+        <tr>
+            <td><a href="{% url 'marketplace:trader-detail' pk=trader.pk %}">{{ trader }}</a></td>
+            <td>{{ trader.email }}</td>
+            <td>{{ trader.province }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

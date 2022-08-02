@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+  Username: {{ trader.username }}
+</h1>
+
+    <p><span class="strong">Full name:</span> {{ trader.first_name }} {{ trader.last_name }}</p>
+    <p><span class="strong">Email:</span> {{ trader.email }}</p>
+    <p><span class="strong">Province:</span> {{ trader.province }}</p>
+    <p><span class="strong">Last active:</span> {{ trader.last_login }}</p>
+    <p><span class="strong">Registered:</span> {{ trader.date_joined.date }}</p>
+
+<div class="ml-3">
+  <h3>Products
+      {% if trader.id == user.id %}
+                <a class="btn btn-primary strong" href="{% url 'blog:product-create' %}">+</a>
+      {% endif %}
+  </h3>
+<div class="product-container">
+    {% for product in product_list %}
+        <div style="width: 12vw">
+            <a href="{% url 'marketplace:product-detail' pk=product.id %}">
+                <div class="product-image" style="background-image: url('{{ product.image.url }}')"></div>
+                <div>
+                    <p style="margin-bottom: 0">{{ product.price }} CAD</p>
+                    <p class="overflow-information">{{ product.name }}</p>
+                </div>
+            </a>
+        </div>
+
+  {% empty %}
+  <p>No products!</p>
+  {% endfor %}
+</div>
+
+    <br>
+
+  <h3>Blog
+      {% if trader.id == user.id %}
+                <a class="btn btn-primary strong" href="{% url 'blog:publication-create' %}">+</a>
+      {% endif %}
+  </h3>
+  <hr class="big">
+  {% for publication in object_list %}
+      <h4>
+          {{ publication.title }}
+          {% if user.id == publication.author.id %}
+              <a class="btn btn-primary" href="{% url 'blog:publication-update' pk=publication.pk %}">Edit</a>
+              <a class="btn btn-danger" href="{% url 'blog:publication-delete' pk=publication.pk %}">Delete</a>
+          {% endif %}
+      </h4>
+      <p class="publication-text">{{ publication.text }}</p>
+      <hr>
+
+  {% empty %}
+  <p>No posts!</p>
+  {% endfor %}
+</div>
+{% endblock %}
