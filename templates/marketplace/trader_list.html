@@ -15,14 +15,14 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Province</th>
+            <th>City</th>
         </tr>
 
     {% for trader in trader_list %}
         <tr>
             <td><a href="{% url 'marketplace:trader-detail' pk=trader.pk %}">{{ trader }}</a></td>
             <td>{{ trader.email }}</td>
-            <td>{{ trader.province }}</td>
+            <td>{{ trader.city }}</td>
         </tr>
     {% endfor %}
     </table>

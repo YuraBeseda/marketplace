@@ -8,7 +8,7 @@ class TraderCreationForm(UserCreationForm):
 
     class Meta:
         model = Trader
-        fields = UserCreationForm.Meta.fields + ('email', 'first_name', 'last_name', 'province',)
+        fields = UserCreationForm.Meta.fields + ('email', 'first_name', 'last_name', 'city',)
 
 
 class TraderSearchForm(forms.Form):

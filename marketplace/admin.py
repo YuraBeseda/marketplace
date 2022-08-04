@@ -8,12 +8,12 @@ from marketplace.models import Trader, Publication, Product
 
 @admin.register(Trader)
 class TraderAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("province",)
+    list_display = UserAdmin.list_display + ("city",)
     fieldsets = UserAdmin.fieldsets + (
-        (("Additional info", {"fields": ("province",)}),)
+        (("Additional info", {"fields": ("city",)}),)
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (("Additional info", {"fields": ("first_name", "last_name", "province",)}),)
+        (("Additional info", {"fields": ("first_name", "last_name", "city",)}),)
     )
 
 

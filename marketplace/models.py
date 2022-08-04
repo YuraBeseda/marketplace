@@ -8,7 +8,7 @@ from blog.settings import AUTH_USER_MODEL
 
 
 class Trader(AbstractUser):
-    province = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "user"
