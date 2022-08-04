@@ -37,7 +37,7 @@ CSRF_COOKIE_SECURE = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "portfolio-marketplace.herokuapp.com"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
