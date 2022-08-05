@@ -11,6 +11,7 @@ class Trader(AbstractUser):
     city = models.CharField(max_length=255)
 
     class Meta:
+        ordering = ["id"]
         verbose_name = "user"
         verbose_name_plural = "users"
 
