@@ -23,6 +23,7 @@ python manage.py runserver #starts Django Server
 
 * Authentication functionality for Trader/User
 * Managing products publications & traders from website interface 
+* Uploading media images of products and storing on AWS bucket
 * Powerful admin panel for advanced managing
 
 ## Demo
