@@ -4,7 +4,7 @@ Django project, which works the same as Facebook Marketplace
 
 ## Check it out!
 
-[Marketplace project deployed to Heroku](PASTE_LINK_HERE)
+[Marketplace project deployed to Heroku](https://portfolio-marketplace.herokuapp.com/)
 
 ## Installation
 
